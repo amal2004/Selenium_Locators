@@ -14,21 +14,22 @@ public class e2e {
 
 // TODO Auto-generated method stub
 
-		System.setProperty("webdriver.chrome.driver", "C://work//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "\\Users\\amalw\\chromedriver\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("http://spicejet.com"); // URL in the browser
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//div[contains(text(),'one way')]")).click();
 
-		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_0")).click();
+		driver.findElement(By.xpath("//div[contains(text(),'From')][1]")).click();
 
-		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
-
-		driver.findElement(By.xpath("//a[@value='DEL']")).click();
+		driver.findElement(By.xpath("//div[contains(text(),'DEL')]")).click();
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']"))
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //div[contains(text(),'MAA')]"))
 				.click();
 
 		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-active")).click();
@@ -71,13 +72,13 @@ public class e2e {
 
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 
-// driver.findElement(By.cssSelector("#ctl00_mainContent_btn_FindFlights")).click();
+		// driver.findElement(By.cssSelector("#ctl00_mainContent_btn_FindFlights")).click();
 
 		driver.findElement(By.cssSelector("input[value='Search']")).click();
 
-// driver.findElement(By.xpath("//input[@value='Search']")).click();
+		// driver.findElement(By.xpath("//input[@value='Search']")).click();
 
-// driver.findElement(By.name("ctl00$mainContent$btn_FindFlights")).click();
+		// driver.findElement(By.name("ctl00$mainContent$btn_FindFlights")).click();
 
 	}
 
